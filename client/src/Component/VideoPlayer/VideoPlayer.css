@@ -1,0 +1,252 @@
+.video-player-container {
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+}
+
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    background: #000;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.video-player {
+    width: 100%;
+    height: auto;
+    display: block;
+    background: #000;
+}
+
+.loading-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    z-index: 10;
+}
+
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top: 4px solid #fff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 10px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.video-controls {
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.quality-selector {
+    position: relative;
+    display: inline-block;
+}
+
+.quality-button {
+    background: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 8px 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    color: #333;
+    transition: all 0.2s ease;
+    min-width: 100px;
+    justify-content: space-between;
+}
+
+.quality-button:hover {
+    background: #e9ecef;
+    border-color: #adb5bd;
+}
+
+.quality-icon {
+    font-size: 16px;
+}
+
+.dropdown-arrow {
+    font-size: 12px;
+    transition: transform 0.2s ease;
+}
+
+.quality-selector:hover .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+.quality-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    min-width: 150px;
+    max-height: 300px;
+    overflow-y: auto;
+    margin-top: 2px;
+}
+
+.quality-option {
+    width: 100%;
+    padding: 10px 12px;
+    border: none;
+    background: none;
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #333;
+    transition: background-color 0.2s ease;
+}
+
+.quality-option:hover {
+    background: #f8f9fa;
+}
+
+.quality-option.active {
+    background: #e3f2fd;
+    color: #1976d2;
+}
+
+.quality-label {
+    font-weight: 500;
+}
+
+.quality-size {
+    color: #666;
+    font-size: 12px;
+    margin-left: 8px;
+}
+
+.current-indicator {
+    color: #1976d2;
+    font-weight: bold;
+    margin-left: 8px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .video-controls {
+        justify-content: center;
+    }
+    
+    .quality-button {
+        min-width: 80px;
+        font-size: 12px;
+        padding: 6px 8px;
+    }
+    
+    .quality-menu {
+        min-width: 120px;
+    }
+    
+    .quality-option {
+        padding: 8px 10px;
+        font-size: 12px;
+    }
+}
+
+/* Custom scrollbar for quality menu */
+.quality-menu::-webkit-scrollbar {
+    width: 6px;
+}
+
+.quality-menu::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+}
+
+.quality-menu::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 3px;
+}
+
+.quality-menu::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+} 
+
+.upgrade-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+}
+
+.upgrade-modal {
+    background: #fff;
+    color: #222;
+    border-radius: 10px;
+    padding: 2rem 2.5rem;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+    max-width: 90vw;
+    width: 350px;
+    text-align: center;
+    position: relative;
+}
+
+.upgrade-modal h2 {
+    margin-bottom: 1rem;
+    color: #1976d2;
+}
+
+.upgrade-btn {
+    background: #1976d2;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 0.7rem 1.5rem;
+    font-size: 1rem;
+    margin: 1rem 0.5rem 0 0;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.upgrade-btn:hover {
+    background: #125ea2;
+}
+
+.close-btn {
+    background: #eee;
+    color: #333;
+    border: none;
+    border-radius: 5px;
+    padding: 0.7rem 1.5rem;
+    font-size: 1rem;
+    margin: 1rem 0 0 0.5rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.close-btn:hover {
+    background: #ccc;
+} 
